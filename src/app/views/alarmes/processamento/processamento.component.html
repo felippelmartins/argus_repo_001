@@ -1,0 +1,121 @@
+
+ <h2 mat-dialog-title> Processamento de alarme </h2>
+
+ <mat-dialog-content>
+         
+     <h3>Frota: {{local_data.carName}}</h3>
+     <h3>Categoria de alarme: {{local_data.alarmName | trataTipo}}</h3>
+
+  
+    <img class="mat-elevation-z6" src= '{{local_data.picUrl | trataUrl}}' />
+    
+  
+
+<div  *ngIf="local_data.vidUrl">
+        <video class="mat-elevation-z6" src="{{local_data.vidUrl | trataUrl}}" controls></video>
+</div>
+ 
+
+
+<div *ngIf="(local_data.alarmName == 'alarm-type.2' || local_data.alarmName == 'alarm-type.1'); else outros">
+   <mat-radio-group [(ngModel)]="itemSelecionado" aria-label="Select an option">
+      <mat-radio-button value="OK">OK</mat-radio-button>
+      <mat-radio-button value="FALSO">FALSO</mat-radio-button>
+      <mat-radio-button value="OB">OLHANDO PARA BAIXO</mat-radio-button>
+    </mat-radio-group>
+
+    <mat-card class="mat-elevation-z6">
+      <h3>EVENTOS ADICIONAIS: </h3>
+
+      <mat-checkbox [(ngModel)]="sc.checked" >
+          {{sc.name }}     
+       </mat-checkbox>
+       <mat-checkbox [(ngModel)]="sm.checked" >
+          {{sm.name }}     
+       </mat-checkbox>
+       <mat-checkbox [(ngModel)]="oc.checked" >
+          {{oc.name }}     
+       </mat-checkbox>
+       <mat-checkbox [(ngModel)]="ds.checked" >
+         {{ds.name }}     
+      </mat-checkbox>
+      <mat-checkbox [(ngModel)]="alim.checked" >
+         {{alim.name }}     
+      </mat-checkbox>
+      <mat-checkbox [(ngModel)]="fon.checked" >
+         {{fon.name }}     
+      </mat-checkbox>
+
+      <mat-checkbox [(ngModel)]="out.checked" >
+         {{out.name }}     
+      </mat-checkbox>
+      
+
+      
+      <div *ngIf="out.checked == true">
+         <mat-form-field  appearance="fill">
+            <mat-label>Insira as particularidades</mat-label>
+            <textarea [(ngModel)]="textoOutros" matInput></textarea>
+          </mat-form-field>
+      </div>
+
+    </mat-card>
+    
+</div>
+
+<ng-template #outros>
+   <mat-radio-group [(ngModel)]="itemSelecionado" aria-label="Select an option">
+      <mat-radio-button value="OK">OK</mat-radio-button>
+      <mat-radio-button value="FALSO">FALSO</mat-radio-button>     
+    </mat-radio-group>
+
+    <mat-card class="mat-elevation-z6"> 
+      <h3>EVENTOS ADICIONAIS: </h3>
+
+      <mat-checkbox [(ngModel)]="sc.checked" >
+         {{sc.name }}     
+      </mat-checkbox>
+      <mat-checkbox [(ngModel)]="sm.checked" >
+         {{sm.name }}     
+      </mat-checkbox>
+      <mat-checkbox [(ngModel)]="oc.checked" >
+         {{oc.name }}     
+      </mat-checkbox>
+      <mat-checkbox [(ngModel)]="olh.checked" >
+         {{olh.name }}     
+      </mat-checkbox>
+      <mat-checkbox [(ngModel)]="ds.checked" >
+         {{ds.name }}     
+      </mat-checkbox>
+      <mat-checkbox [(ngModel)]="alim.checked" >
+         {{alim.name }}     
+      </mat-checkbox>
+      <mat-checkbox [(ngModel)]="fon.checked" >
+         {{fon.name }}     
+      </mat-checkbox>
+
+      <mat-checkbox [(ngModel)]="out.checked" >
+         {{out.name }}     
+      </mat-checkbox>
+      
+
+      
+      <div *ngIf="out.checked == true">
+         <mat-form-field  appearance="fill">
+            <mat-label>Insira as particularidades</mat-label>
+            <textarea [(ngModel)]="textoOutros" matInput></textarea>
+          </mat-form-field>
+      </div>
+
+
+    </mat-card>
+    
+</ng-template>
+
+
+ </mat-dialog-content>
+
+ <mat-dialog-actions>
+     <button class="mat-raised-button" (click)="close()">Fechar</button>
+     <button class="mat-raised-button" (click)="processa()">Processar</button>
+ </mat-dialog-actions>

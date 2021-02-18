@@ -1,0 +1,47 @@
+
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="alarmes" class="full-width-table"  aria-label="Elements">
+      <!-- Id Column -->
+
+      <ng-container matColumnDef="trata">
+        <th mat-header-cell *matHeaderCellDef ></th>
+        <td mat-cell *matCellDef="let row">
+          <a  (click)="openDialog(row)">
+            <i class="material-icons alarm" >
+              notification_important
+            </i>
+          </a>
+        </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="alarmId">
+        <th mat-header-cell *matHeaderCellDef >Id do alarme</th>
+        <td mat-cell *matCellDef="let row">{{row.id | trataId}}</td>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="alarmType">
+        <th mat-header-cell *matHeaderCellDef >Tipo de Alarme</th>
+        <td mat-cell *matCellDef="let row">{{row.alarmName | trataTipo}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="carName">
+        <th mat-header-cell *matHeaderCellDef >Frota</th>
+        <td mat-cell *matCellDef="let row">{{row.carName}}</td>
+      </ng-container>     
+      
+      
+
+      <ng-container matColumnDef="alarmTime">
+        <th mat-header-cell *matHeaderCellDef >Hora do alarme</th>
+        <td mat-cell *matCellDef="let row">{{row.alarmTime}}</td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    
+  </div>
+  

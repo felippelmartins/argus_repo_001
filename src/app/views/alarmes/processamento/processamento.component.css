@@ -1,0 +1,35 @@
+button {
+    margin-left: 10px;
+}
+
+img {
+    display: block;
+    max-width: 50%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+video {
+    display: block;
+    max-width: 50%;
+    height: auto;
+}
+
+mat-form-field {
+    color: honeydew;
+    text-decoration: none;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  mat-checkbox {
+      margin: 12px;
+  }
+
+  mat-form-field.mat-form-field {
+    font-size: 16px;
+  }
