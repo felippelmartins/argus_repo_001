@@ -1,17 +1,29 @@
-<h2 class="text-center"> Entrar </h2>
 
-<form (ngSubmit)="onSubmit()" #form="ngForm">
-    <div class="form-group">
-        <label> E-mail</label>
-        <input class="form-control" type="email" name="email" [(ngModel)]="login.email" required/>
+<mat-card>
+    <h2> Entrar </h2>
+
+    <div class="form">
+        <mat-form-field appearance="fill">
+            <mat-label>Enter your email</mat-label>
+            <input matInput placeholder="eu@exemplo.com.br" [(ngModel)]="login.email" required>
+            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
     </div>
 
-    <div class="form-group">
-        <label> Senha</label>
-        <input class="form-control" type="password" name="password" [(ngModel)]="login.password" required/>
+    <div class="form">
+        <mat-form-field appearance="fill">
+            <mat-label>Enter your password</mat-label>
+            <input [(ngModel)]="login.password" matInput [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
     </div>
 
-    <button type="submit" class="btn btn-primary btn-block" [disabled]="form.form.invalid">Entrar</button>
-    <button type="button" class="btn btn-link btn-block" [routerLink]="['/create-account']">Criar conta</button>
+    <button mat-raised-button (click)="onSubmit()" [disabled]="!login.email" type="submit">Entrar</button>
+    <button mat-raised-button type="button" [routerLink]="['/create-account']">Criar conta</button>
 
-</form>
+
+
+</mat-card>
+

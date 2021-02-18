@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+
 import { AccountService } from '../shared/account.service';
 
 @Component({
@@ -13,6 +15,17 @@ export class LoginComponent implements OnInit {
     email: '',
     password: ''
   };
+  email = new FormControl('', [Validators.required, Validators.email]);
+
+  hide = true;
+  isDisabled = true;
+
+  getErrorMessage() {
+    if(this.email.hasError('required')) {
+      return 'Entre um valor válido!';
+    }
+    return this.email.hasError('email') ? 'Não é um email válido' : '';
+  }
 
   constructor(
     private accountService: AccountService,

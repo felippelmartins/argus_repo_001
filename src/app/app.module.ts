@@ -46,7 +46,7 @@ import { LoginComponent } from './account/login/login.component';
 import { CreateAccountComponent } from './account/create-account/create-account.component';
 import { AuthenticationComponent } from './layout/authentication/authentication.component';
 import { HomeAuthComponent } from './layout/home-auth/home-auth.component';
-
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -93,7 +93,8 @@ import { HomeAuthComponent } from './layout/home-auth/home-auth.component';
     MatSelectModule,
     ReactiveFormsModule,
     MatRadioModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatIconModule
    
   ],
   providers: [],
