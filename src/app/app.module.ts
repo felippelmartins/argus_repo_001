@@ -42,6 +42,10 @@ import {MatSelectModule} from '@angular/material/select';
 import {ReactiveFormsModule} from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { LoginComponent } from './account/login/login.component';
+import { CreateAccountComponent } from './account/create-account/create-account.component';
+import { AuthenticationComponent } from './layout/authentication/authentication.component';
+import { HomeAuthComponent } from './layout/home-auth/home-auth.component';
 
 
 
@@ -61,6 +65,10 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     TrataUrlPipe,
     TrataTipoPipe,
     ProcessamentoComponent,
+    LoginComponent,
+    CreateAccountComponent,
+    AuthenticationComponent,
+    HomeAuthComponent,
     
     
   ],
