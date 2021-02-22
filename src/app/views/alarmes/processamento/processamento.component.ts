@@ -4,6 +4,7 @@ import {Alarme} from '../alarme.model';
 import{FormControl} from '@angular/forms';
 
 
+
 export interface Outros {
   name: string,
   checked: boolean
@@ -20,6 +21,7 @@ export class ProcessamentoComponent implements OnInit {
   
    
    local_data: any;
+   thumb: boolean = true;
    declare itemSelecionado: any;
    textoOutros: string = "";
    

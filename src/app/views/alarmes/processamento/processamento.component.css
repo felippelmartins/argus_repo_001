@@ -2,12 +2,14 @@ button {
     margin-left: 10px;
 }
 
-img {
+.ima {
     display: block;
     max-width: 50%;
     height: auto;
     margin-bottom: 20px;
 }
+
+
 
 video {
     display: block;

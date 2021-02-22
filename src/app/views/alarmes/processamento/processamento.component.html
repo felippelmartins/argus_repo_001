@@ -6,16 +6,28 @@
      <h3>Frota: {{local_data.carName}}</h3>
      <h3>Categoria de alarme: {{local_data.alarmName | trataTipo}}</h3>
 
-  
-    <img class="mat-elevation-z6" src= '{{local_data.picUrl | trataUrl}}' />
-    
-  
+     
+     
+        <div *ngIf="thumb; else thumbFalse">
+         <a (click)="thumb=false"> <img class="mat-elevation-z6 ima" src= '{{local_data.picUrl | trataUrl}}' /> </a>
+        </div>
+        
+        <ng-template #thumbFalse>
+         <a (click)="thumb=true"> <img class="mat-elevation-z6 imaG" src= '{{local_data.picUrl | trataUrl}}' /> </a>
+        </ng-template>
+        
+       
+     
+
+     
+     
 
 <div  *ngIf="local_data.vidUrl">
         <video class="mat-elevation-z6" src="{{local_data.vidUrl | trataUrl}}" controls></video>
 </div>
  
 
+<br>
 
 <div *ngIf="(local_data.alarmName == 'alarm-type.2' || local_data.alarmName == 'alarm-type.1'); else outros">
    <mat-radio-group [(ngModel)]="itemSelecionado" aria-label="Select an option">
